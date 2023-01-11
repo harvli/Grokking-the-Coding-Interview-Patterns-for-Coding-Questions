@@ -36,3 +36,27 @@ function minSubArr(arr, s) {
   return minLength;
 }
 // console.log(minSubArr([2,1,5,2,3,2], 7))
+
+function longestSub (str, k) {
+	const dict = {};
+	let distinct = 0;
+	let result = "";
+	for (let windowEnd = 0; windowEnd < str.length; windowEnd++){
+		if (!dict[str[windowEnd]]) {
+			dict[str[windowEnd]] = true;
+			distinct++;
+			result += str[windowEnd];
+		} else {
+			result += str[windowEnd]
+		}
+		if (distinct > k) {
+			console.log(result)
+			result = result.slice(0, windowEnd)
+			console.log(result)
+		}
+	}
+	console.log(dict)
+	return (result, result.length)
+}
+
+console.log(longestSub("araaci", 2))
